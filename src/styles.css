@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    background-color: #161616;
+}
+.navbar-dark {
+    background-color: #000 !important;
+}
+
+.bg-dark {
+    background-color: #161616!important;
+}
+.btn-outline-success{
+    color: #fff;
+    border-color: #fff;
+}
+.btn-outline-success:hover {
+    background-color: #EF1423;
+    border-color: #EF1423;
+}
+.btn-outline-success:active{
+    background-color: #EF1423;
+    border-color: #EF1423;
+    box-shadow: #f1384449 0px 4px 4px, #f1384449 0px 0px 0px 4px;
+}
+
+.btn-img:hover {
+    color: #EF1423;
+}
+.btn-img:active{
+    color: #161616;
+}

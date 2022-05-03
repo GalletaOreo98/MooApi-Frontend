@@ -1,0 +1,8 @@
+<div *ngFor="let video of videos">
+    <div class="card text-white bg-dark mx-auto col-10 col-md-7">
+        <div class="card-body">
+            <h5 class="card-title">Capitulo {{video.numeroVideo}} - {{video.nombre}}</h5>
+            <a href="{{video.url}}" class="card-link">Ver capitulo</a>
+        </div>
+    </div>
+</div>

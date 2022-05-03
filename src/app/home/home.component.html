@@ -1,0 +1,24 @@
+<!-- Bienvenida -->
+<div id="bienvenida" class="d-flex flex-column align-items-center text-white">
+    <h4>¡Te damos la bienvenida a MooApi!</h4>
+    <p id="saludo">En desarrollo... 🐮❤️</p>
+</div>
+
+<!-- Card de frame actual -->
+<div id="actual-frame" class="d-flex mx-auto col-10 col-md-7">
+    <div class="card text-white bg-dark mx-auto">
+        <img [src]="cardFrame.url" class="card-img-top" alt="Sin Frame disponible">
+        <div class="card-body">
+            <p class="card-text">{{cardFrame.caption}}</p>
+            <a [href]="cardFrame.url">Ver imagen</a>
+        </div>
+    </div>
+</div>
+
+<!-- Search (Visible solo pantallas pequeñas) -->
+<div class="d-flex mt-2 mx-auto col-8">
+    <input [(ngModel)]='searchedFrame' (keydown.enter)="getFrame()"
+        class="form-control me-2 d-block d-sm-block d-md-none" type="text" placeholder="Search Frame"
+        aria-label="Search">
+    <button class="btn btn-outline-success d-block d-sm-block d-md-none" (click)="getFrame()">Search</button>
+</div>
