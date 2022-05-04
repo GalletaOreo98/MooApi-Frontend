@@ -24,9 +24,21 @@ body {
     box-shadow: #f1384449 0px 4px 4px, #f1384449 0px 0px 0px 4px;
 }
 
+.btn-img{
+    cursor: pointer;
+}
 .btn-img:hover {
     color: #EF1423;
 }
-.btn-img:active{
+.btn-img:active {
     color: #161616;
+}
+
+.btn-danger {
+    background-color: #EF1423;
+} 
+
+.btn-secondary{
+    background-color: #414141;
+    border-color: #414141;
 }

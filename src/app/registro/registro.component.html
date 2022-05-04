@@ -1,0 +1,26 @@
+<form [formGroup]="formularioIngresar" class="d-flex mt-5 flex-column mx-auto col-10 col-md-4">
+    <h4 class="text-white mx-auto mb-5">Registrate</h4>
+    <input formControlName="email" type="text" class="form-control mx-auto bg-gray" placeholder="E-mail">
+    <input formControlName="password" type="password" class="form-control mx-auto bg-gray mt-4" placeholder="Contraseña">
+    <input formControlName="passwordconfirm" type="password" class="form-control mx-auto bg-gray mt-4" placeholder="Confirmar contraseña">
+    <input formControlName="nombre" type="text" class="form-control mx-auto bg-gray mt-4" placeholder="Nombre">
+    <button [disabled]="!formularioIngresar.valid" class="btn btn-danger mt-5" (click)="registrar()">Registrate</button>
+    <a routerLink="/login" class="mt-4 mx-auto">¿Ya tienes una cuenta?</a>
+    <p class="text-white mt-3 mx-auto" 
+        *ngIf="!formularioIngresar.valid 
+        && formularioIngresar.value.email
+        && formularioIngresar.value.password
+        && formularioIngresar.value.passwordconfirm
+        && formularioIngresar.value.nombre
+        && formularioIngresar.dirty"
+        >
+        Campos invalidos
+    </p>
+    <p class="text-white mt-3 mx-auto" 
+        *ngIf="formularioIngresar.value.passwordconfirm != formularioIngresar.value.password
+        && formularioIngresar.value.password
+        && formularioIngresar.value.passwordconfirm"
+        >
+        Contraseñas no coinciden
+    </p>
+</form>

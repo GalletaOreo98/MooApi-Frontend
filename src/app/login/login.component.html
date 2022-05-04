@@ -1,0 +1,18 @@
+<form [formGroup]="formularioIngresar" class="d-flex mt-5 flex-column mx-auto col-10 col-md-4">
+    <h4 class="text-white mx-auto mb-5">¡Bienvenido de nuevo!</h4>
+    <input formControlName="email" type="text" id="input-email" class="form-control mx-auto bg-gray" placeholder="E-mail">
+    <input formControlName="password" type="password" id="input-password" class="form-control mx-auto bg-gray mt-4" placeholder="Contraseña">
+    <button [disabled]="!formularioIngresar.valid" class="btn btn-danger mt-5" (click)="ingresar()">Ingresar</button>
+    <a routerLink="/registro" class="mt-4 mx-auto">¿No tienes una cuenta?</a>
+    <p class="text-white mt-3 mx-auto" 
+        *ngIf="!formularioIngresar.valid 
+        && formularioIngresar.value.email
+        && formularioIngresar.value.password
+        && formularioIngresar.dirty"
+        >
+        Campos invalidos
+    </p>
+    <p *ngIf="errorMessage" class="text-white mt-3 mx-auto">
+        {{errorMessage}}
+    </p>
+</form>

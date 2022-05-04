@@ -1,5 +1,5 @@
-import { Component, Injectable } from '@angular/core';
-import { faShieldCat, faFilm, faImage } from '@fortawesome/free-solid-svg-icons';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { faShieldCat, faFilm, faImage, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
 import { FrameServicesService } from './services/frame-services.service';
 import { Router } from '@angular/router';
@@ -12,17 +12,29 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'admin-frontend';
   faShieldCat = faShieldCat;
   faFilm = faFilm;
   faImage = faImage;
+  faUser = faUser;
 
   searchedFrame:String = '';
-
-
+  userName:String = '';
 
   constructor( private frameService:FrameServicesService, private router:Router ) { }
+  
+  ngOnInit(): void {
+    console.log('oninit', localStorage.getItem('nombre'));
+    var nick = localStorage.getItem('nombre') || '';
+    if (!nick) {
+      this.userName = '';
+      return;
+    }
+    nick = nick.charAt(0) + nick.charAt(nick.length-1);
+    nick = nick.toUpperCase(); 
+    this.userName = nick;
+  }
 
   getFrame(){
     this.frameService.getFrame(this.searchedFrame).subscribe(
@@ -37,7 +49,4 @@ export class AppComponent {
     );
   } 
 
-  goToVideos(){
-    this.router.navigate(['videos'])
-  }
 }

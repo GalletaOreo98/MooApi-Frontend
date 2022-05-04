@@ -8,15 +8,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import { SearchFrameComponent } from './search-frame/search-frame.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import {HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideosComponent } from './videos/videos.component';
-//import { RouterModule, Routes } from '@angular/router';
-
-/* const appRoutes:Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'frame', component: SearchFrameComponent}
-]; */
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { GlobalchatComponent } from './globalchat/globalchat.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +24,9 @@ import { VideosComponent } from './videos/videos.component';
     SearchFrameComponent,
     ErrorPageComponent,
     VideosComponent,
+    LoginComponent,
+    RegistroComponent,
+    GlobalchatComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +35,9 @@ import { VideosComponent } from './videos/videos.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    //RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }, AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

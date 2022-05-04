@@ -1,17 +1,20 @@
 <!-- Navbar -->
 <nav class="navbar navbar-dark shadow mb-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="https://moo-api-facebook.herokuapp.com">
+        <a class="navbar-brand" routerLink="">
             <h1>
                 <fa-icon [icon]="faShieldCat"></fa-icon> Moo<span style="color: #EF1423;">Api</span>
             </h1>
         </a>
         <h1 class="text-white">
-            <fa-icon [icon]="faFilm" (click)="goToVideos()" class="btn-img"></fa-icon>
+            <fa-icon [icon]="faFilm" routerLink="videos" class="btn-img"></fa-icon>
         </h1> 
         <h1 class="text-white">
             <fa-icon [icon]="faImage" class="btn-img"></fa-icon>
         </h1>
+        <div *ngIf="userName">
+            <h1 class="text-white"><fa-icon [icon]="faUser" class="btn-img"></fa-icon> {{userName}}</h1>
+        </div>
         <!-- Search (Visible solo pantallas grandes y medianas) -->
         <div class="d-flex">
             <input [(ngModel)]='searchedFrame' (keydown.enter)="getFrame()" class="form-control me-2 d-none d-sm-none d-md-block" type="text"

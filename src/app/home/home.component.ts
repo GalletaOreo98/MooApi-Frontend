@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FrameServicesService } from '../services/frame-services.service';
+import { AuthServicesService } from "../services/auth-services.service";
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
     url:'',
   }
 
-  constructor( private frameService:FrameServicesService, private router:Router ) {}
+  constructor( private frameService:FrameServicesService, private router:Router, public authServicesService:AuthServicesService, private appComponent:AppComponent) {}
 
   ngOnInit(): void {
     this.getActualFrame();
@@ -41,4 +43,8 @@ export class HomeComponent implements OnInit {
   getFrame(){  
     this.router.navigate(['frame', this.searchedFrame]); 
   } 
+
+  sa(){
+  this.appComponent.ngOnInit();    
+  }
 }
