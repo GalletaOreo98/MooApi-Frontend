@@ -16,6 +16,14 @@ import { RegistroComponent } from './registro/registro.component';
 import { GlobalchatComponent } from './globalchat/globalchat.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = {
+	url: 'http://localhost:4000', // socket server url;
+	options: {
+		transports: ['websocket']
+	}
+}
 
 @NgModule({
   declarations: [
@@ -35,7 +43,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocketIoModule.forRoot(config), 
   ],
   providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }, AppComponent],
   bootstrap: [AppComponent]

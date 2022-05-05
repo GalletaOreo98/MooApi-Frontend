@@ -42,3 +42,7 @@ body {
     background-color: #414141;
     border-color: #414141;
 }
+
+.list-group-item-dark {
+    background-color: #c4c4c4;
+}

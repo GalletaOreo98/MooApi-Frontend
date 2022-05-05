@@ -10,7 +10,7 @@ import { VideoServiceService } from '../services/video-service.service';
 export class VideosComponent implements OnInit {
 
   videos:Array<{
-      idVideo:string, 
+      idVideo:String, 
       numeroVideo:String, 
       url:String, 
       nombre:String

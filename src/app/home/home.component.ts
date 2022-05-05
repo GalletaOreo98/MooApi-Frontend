@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FrameServicesService } from '../services/frame-services.service';
 import { AuthServicesService } from "../services/auth-services.service";
 import { AppComponent } from '../app.component';
+import { WebsocketService } from '../services/websocket.service';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +23,17 @@ export class HomeComponent implements OnInit {
     url:'',
   }
 
-  constructor( private frameService:FrameServicesService, private router:Router, public authServicesService:AuthServicesService, private appComponent:AppComponent) {}
+  constructor( private frameService:FrameServicesService, private router:Router, 
+    public authServicesService:AuthServicesService, private appComponent:AppComponent,
+    private websocketService: WebsocketService) {}
 
   ngOnInit(): void {
     this.getActualFrame();
+    this.websocketService.onSayHello().subscribe({
+      next: (res:any) => {
+        console.log(res);
+      }
+    })
   }
 
   getActualFrame() {
@@ -39,6 +47,10 @@ export class HomeComponent implements OnInit {
     );
   }
   
+  sayHello() {
+    console.log('envie saludo');
+    this.websocketService.sayHello();
+  }
 
   getFrame(){  
     this.router.navigate(['frame', this.searchedFrame]); 
