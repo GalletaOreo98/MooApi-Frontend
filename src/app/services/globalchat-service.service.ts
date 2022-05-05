@@ -10,7 +10,7 @@ export class GlobalchatServiceService {
   constructor(private httpClient:HttpClient) { }
 
   getChat() {
-    return this.httpClient.get(`http://localhost:4000/api/chat`);
+    return this.httpClient.get(`https://moo-api-facebook.herokuapp.com/api/chat`);
   }
 
 }

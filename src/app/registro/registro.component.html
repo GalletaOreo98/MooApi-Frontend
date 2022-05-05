@@ -6,7 +6,7 @@
     <input formControlName="nombre" type="text" class="form-control mx-auto bg-gray mt-4" placeholder="Nombre">
     <button [disabled]="!formularioIngresar.valid" class="btn btn-danger mt-5" (click)="registrar()">Registrate</button>
     <a routerLink="/login" class="mt-4 mx-auto">¿Ya tienes una cuenta?</a>
-    <p class="text-white mt-3 mx-auto" 
+    <p class="text-white mt-3 mx-auto" style="font-size: 0.8em;"
         *ngIf="!formularioIngresar.valid 
         && formularioIngresar.value.email
         && formularioIngresar.value.password
@@ -16,11 +16,17 @@
         >
         Campos invalidos
     </p>
-    <p class="text-white mt-3 mx-auto" 
+    <p class="text-white mt-3 mx-auto" style="font-size: 0.8em;" 
         *ngIf="formularioIngresar.value.passwordconfirm != formularioIngresar.value.password
         && formularioIngresar.value.password
-        && formularioIngresar.value.passwordconfirm"
+        && formularioIngresar.value.passwordconfirm
+        || !formularioIngresar.controls['password'].valid
+        && !!formularioIngresar.value.password
+        && formularioIngresar.controls['password'].dirty
+        && formularioIngresar.controls['password'].touched"
         >
-        Contraseñas no coinciden
+        Contraseñas no coinciden o no son seguras.
+        La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
     </p>
+    <p *ngIf="errorMessage" class="text-white mt-3 mx-auto" style="font-size: 0.8em;">{{errorMessage}}</p>
 </form>

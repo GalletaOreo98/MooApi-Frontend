@@ -12,15 +12,17 @@ import { AuthServicesService } from '../services/auth-services.service';
 export class RegistroComponent implements OnInit {
 
   formularioIngresar = new FormGroup({
-    email:new FormControl('', [Validators.required, Validators.email]),
-    password:new FormControl('', [Validators.required]),
+    email:new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/)]),
+    password:new FormControl('', [Validators.required, Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)]),
     passwordconfirm:new FormControl('', [Validators.required]),    
     nombre:new FormControl('', [Validators.required])
   });
 
+  errorMessage:String='';
+
   constructor(private authService:AuthServicesService, private router:Router, private appComponent:AppComponent) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   registrar(){
@@ -33,7 +35,7 @@ export class RegistroComponent implements OnInit {
           this.router.navigate(['']);
         },
         error: (res:any) => {
-          console.log(res);
+          this.errorMessage = res.error.sqlMessage;
         }
       }
     )

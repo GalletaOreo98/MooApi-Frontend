@@ -4,7 +4,7 @@
     <input formControlName="password" type="password" id="input-password" class="form-control mx-auto bg-gray mt-4" placeholder="Contraseña">
     <button [disabled]="!formularioIngresar.valid" class="btn btn-danger mt-5" (click)="ingresar()">Ingresar</button>
     <a routerLink="/registro" class="mt-4 mx-auto">¿No tienes una cuenta?</a>
-    <p class="text-white mt-3 mx-auto" 
+    <p class="text-white mt-3 mx-auto" style="font-size: 0.8em;"
         *ngIf="!formularioIngresar.valid 
         && formularioIngresar.value.email
         && formularioIngresar.value.password
@@ -12,7 +12,7 @@
         >
         Campos invalidos
     </p>
-    <p *ngIf="errorMessage" class="text-white mt-3 mx-auto">
+    <p *ngIf="errorMessage" class="text-white mt-3 mx-auto" style="font-size: 0.8em;">
         {{errorMessage}}
     </p>
 </form>
