@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
   }
   
   sayHello() {
-    console.log('envie saludo');
+    console.log('I said hello to the server');
     this.websocketService.sayHello();
   }
 
@@ -57,6 +57,6 @@ export class HomeComponent implements OnInit {
   } 
 
   sa(){
-  this.appComponent.ngOnInit();    
+    this.appComponent.ngOnInit();    
   }
 }

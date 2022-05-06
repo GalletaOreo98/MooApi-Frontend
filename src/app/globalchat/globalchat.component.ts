@@ -13,7 +13,7 @@ export class GlobalchatComponent implements OnInit {
 
   chat:Array<{
     user:String, 
-    comentario:any, 
+    comentario:String, 
   }> | undefined;
 
   comentario:String='';
@@ -27,7 +27,7 @@ export class GlobalchatComponent implements OnInit {
       next: (res:any) => {
         console.log('onSayHello activated');
         this.globalChatService.getChat().subscribe({
-          next: (res:any) => {
+          next: (res:any) => {            
             this.chat = res.message;
           },
           error: (res:any) => {

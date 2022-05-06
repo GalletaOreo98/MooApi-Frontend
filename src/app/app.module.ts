@@ -19,7 +19,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 const config: SocketIoConfig = {
-	url: 'http://localhost:4000', // socket server url;
+	url: 'https://moo-api-facebook.herokuapp.com', // socket server url;
 	options: {
 		transports: ['websocket']
 	}

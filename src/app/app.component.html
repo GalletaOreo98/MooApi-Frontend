@@ -13,7 +13,7 @@
             <fa-icon [icon]="faImage" class="btn-img"></fa-icon>
         </h1>
         <div *ngIf="userName">
-            <h1 class="text-white"><fa-icon [icon]="faUser" class="btn-img"></fa-icon> {{userName}}</h1>
+            <h1 class="text-white"><fa-icon [icon]="faUser" routerLink="globalchat" class="btn-img"></fa-icon> {{userName}}</h1>
         </div>
         <!-- Search (Visible solo pantallas grandes y medianas) -->
         <div class="d-flex">
