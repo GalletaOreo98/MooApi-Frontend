@@ -11,6 +11,8 @@ import { WebsocketService } from '../services/websocket.service';
 })
 export class GlobalchatComponent implements OnInit {
 
+  show=false;
+
   chat:Array<{
     user:String, 
     comentario:String, 
@@ -23,6 +25,7 @@ export class GlobalchatComponent implements OnInit {
     private websocketService: WebsocketService) { }
 
   ngOnInit(): void {
+    
     this.websocketService.onSayHello().subscribe({
       next: (res:any) => {
         console.log('onSayHello activated');
@@ -31,6 +34,7 @@ export class GlobalchatComponent implements OnInit {
             this.chat = res.message;
           },
           error: (res:any) => {
+            localStorage.removeItem('informado_del_global_chat')
             this.authServicesService.logOut();
             this.router.navigate(['login']);
           }
@@ -42,11 +46,17 @@ export class GlobalchatComponent implements OnInit {
       next: (res:any) => {
         this.chat = res.message;
       },
-      error: (res:any) => {
+      error: (res:any) => {        
         this.authServicesService.logOut();
+        localStorage.removeItem('informado_del_global_chat')
         this.router.navigate(['login']);
       }
     });
+
+    if (!localStorage.getItem('informado_del_global_chat')) {
+      this.show = true;
+    }
+    setTimeout(() => this.show = false, 15000);
   }
 
   postChat() {
@@ -64,6 +74,11 @@ export class GlobalchatComponent implements OnInit {
 
   sayHello() {
     this.websocketService.sayHello();
+  }
+
+  close() {
+    this.show = false;
+    localStorage.setItem('informado_del_global_chat', 'yes');
   }
 
 }

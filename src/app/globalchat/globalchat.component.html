@@ -1,3 +1,9 @@
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <ngb-toast *ngIf="show" header="Lain" [autohide]="false" (hidden)="close()">
+    Hola, esto es el chat global, en teoria solo puedes acceder aquí si estas registrado 😉 <br>
+    Recuerda que esto es un chat global, así que mide lo que dices y no compartas información importante 
+  </ngb-toast>
+</div>
 
 <ul class="list-group mx-auto col-11 col-md-9 mb-5">
     <li *ngFor="let message of chat" class="list-group-item d-flex justify-content-between align-items-start list-group-item-dark">

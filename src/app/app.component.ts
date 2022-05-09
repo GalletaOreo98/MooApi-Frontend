@@ -22,7 +22,6 @@ export class AppComponent implements OnInit{
   constructor( private frameService:FrameServicesService, private router:Router ) { }
   
   ngOnInit(): void {
-    console.log('oninit', localStorage.getItem('nombre'));
     var nick = localStorage.getItem('nombre') || '';
     if (!nick) {
       this.userName = '';
