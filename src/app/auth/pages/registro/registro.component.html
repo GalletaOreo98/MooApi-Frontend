@@ -5,7 +5,7 @@
     <input formControlName="passwordconfirm" type="password" class="form-control mx-auto bg-gray mt-4" placeholder="Confirmar contraseña">
     <input formControlName="nombre" type="text" class="form-control mx-auto bg-gray mt-4" placeholder="Nombre">
     <button [disabled]="!formularioIngresar.valid" class="btn btn-danger mt-5" (click)="registrar()">Registrate</button>
-    <a routerLink="/login" class="mt-4 mx-auto">¿Ya tienes una cuenta?</a>
+    <a routerLink="/auth/login" class="mt-4 mx-auto">¿Ya tienes una cuenta?</a>
     <p class="text-white mt-3 mx-auto" style="font-size: 0.8em;"
         *ngIf="!formularioIngresar.valid 
         && formularioIngresar.value.email

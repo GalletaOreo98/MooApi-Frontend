@@ -11,8 +11,6 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideosComponent } from './videos/videos.component';
-import { LoginComponent } from './login/login.component';
-import { RegistroComponent } from './registro/registro.component';
 import { GlobalchatComponent } from './globalchat/globalchat.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -32,8 +30,6 @@ const config: SocketIoConfig = {
     SearchFrameComponent,
     ErrorPageComponent,
     VideosComponent,
-    LoginComponent,
-    RegistroComponent,
     GlobalchatComponent,
   ],
   imports: [
