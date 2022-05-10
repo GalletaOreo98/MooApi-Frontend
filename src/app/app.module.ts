@@ -10,7 +10,6 @@ import { SearchFrameComponent } from './search-frame/search-frame.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { VideosComponent } from './videos/videos.component';
 import { GlobalchatComponent } from './globalchat/globalchat.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -29,7 +28,6 @@ const config: SocketIoConfig = {
     HomeComponent,
     SearchFrameComponent,
     ErrorPageComponent,
-    VideosComponent,
     GlobalchatComponent,
   ],
   imports: [
