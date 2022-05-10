@@ -8,9 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import { SearchFrameComponent } from './search-frame/search-frame.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GlobalchatComponent } from './globalchat/globalchat.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -28,7 +27,6 @@ const config: SocketIoConfig = {
     HomeComponent,
     SearchFrameComponent,
     ErrorPageComponent,
-    GlobalchatComponent,
   ],
   imports: [
     BrowserModule,

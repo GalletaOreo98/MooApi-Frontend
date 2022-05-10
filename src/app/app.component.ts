@@ -1,6 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faShieldCat, faFilm, faImage, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FormsModule } from '@angular/forms';
 import { FrameServicesService } from './services/frame-services.service';
 import { Router } from '@angular/router';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthServicesService } from '../services/auth-services.service';
-import { GlobalchatServiceService } from '../services/globalchat-service.service';
-import { WebsocketService } from '../services/websocket.service';
+import { AuthServicesService } from '../../services/auth-services.service';
+import { GlobalchatServiceService } from '../../services/globalchat-service.service';
+import { WebsocketService } from '../../services/websocket.service';
 
 @Component({
   selector: 'app-globalchat',
