@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     localStorage.removeItem('nombre');
     this.authService.logOut();
     localStorage.removeItem('informado_del_global_chat');
-    this.router.navigate(['/login'])
+    this.router.navigate(['auth/login'])
     return false;
   }
   

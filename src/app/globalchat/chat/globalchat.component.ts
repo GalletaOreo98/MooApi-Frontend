@@ -36,7 +36,7 @@ export class GlobalchatComponent implements OnInit {
           error: (res:any) => {
             localStorage.removeItem('informado_del_global_chat')
             this.authServicesService.logOut();
-            this.router.navigate(['login']);
+            this.router.navigate(['auth/login']);
           }
         });
       }
@@ -45,18 +45,18 @@ export class GlobalchatComponent implements OnInit {
     this.globalChatService.getChat().subscribe({
       next: (res:any) => {
         this.chat = res.message;
+        if (!localStorage.getItem('informado_del_global_chat')) {
+          this.show = true;
+        }
+        setTimeout(() => this.show = false, 15000);
       },
       error: (res:any) => {        
         this.authServicesService.logOut();
         localStorage.removeItem('informado_del_global_chat')
-        this.router.navigate(['login']);
+        this.router.navigate(['auth/login']);
       }
     });
 
-    if (!localStorage.getItem('informado_del_global_chat')) {
-      this.show = true;
-    }
-    setTimeout(() => this.show = false, 15000);
   }
 
   postChat() {

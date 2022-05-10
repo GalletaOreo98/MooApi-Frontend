@@ -30,6 +30,6 @@ export class AuthServicesService {
     localStorage.removeItem('token');
     localStorage.removeItem('nombre');
     this.appComponent.ngOnInit();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/auth/login'])
   }
 }

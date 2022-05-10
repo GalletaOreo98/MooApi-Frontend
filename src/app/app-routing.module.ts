@@ -10,7 +10,10 @@ const routes: Routes = [
   {path: 'frame/:numeroFrame', component: SearchFrameComponent},
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)},
   {path: 'videos', loadChildren: () => import('./videos/videos.module').then( m => m.VideosModule)},
-  {path: 'globalchat', loadChildren: () => import('./globalchat/globalchat.module').then( m => m.GlobalchatModule)},
+  {
+    path: 'globalchat', loadChildren: () => import('./globalchat/globalchat.module').then( m => m.GlobalchatModule),
+    canActivate: [AuthGuard] 
+  },
   {path: 'error', component: ErrorPageComponent},
   {path: '**', component: HomeComponent},
 ];
