@@ -6,13 +6,16 @@
 </div>
 
 <ul class="list-group mx-auto col-11 col-md-9 mb-5">
-    <li *ngFor="let message of chat" class="list-group-item d-flex justify-content-between align-items-start list-group-item-dark">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">{{message.user}}</div>
-        {{message.comentario}}
-      </div>
-    </li>
-  </ul>
+  <div (click)="open()" class="d-flex rounded" style="background-color: gray; cursor: pointer;">
+    <p class="text-white my-auto mx-auto py-2 text-decoration-underline">Ver usuarios activos</p>
+  </div>
+  <li *ngFor="let message of chat" class="list-group-item d-flex justify-content-between align-items-start list-group-item-dark">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">{{message.user}}</div>
+      {{message.comentario}}
+    </div>
+  </li>
+</ul>
 
 <div class="d-flex col-11 col-md-9 fixed-bottom mx-auto">
   <textarea [(ngModel)]="comentario" (keydown.enter)="postChat()" class="form-control" rows="1" style="border: 2px solid black; border-radius: 0;"></textarea>

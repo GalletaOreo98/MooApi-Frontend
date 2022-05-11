@@ -10,7 +10,7 @@ export class WebsocketService {
 
   // emit event
 	sayHello() {
-		this.socket.emit('sayhello', 'Lola');
+		this.socket.emit('sayhello');
 	} 
 
 	// listen event
@@ -18,4 +18,13 @@ export class WebsocketService {
 		return this.socket.fromEvent('sayhello');
 	}
 
+	newUser() {
+		this.socket.emit('new user', localStorage.getItem('nombre'));
+	} 
+
+	verUsuariosConectados(cb:any) {
+		this.socket.emit('ver usuarios conectados', (data:any) => {
+			cb(data);
+		}); 
+	}
 }
