@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
-import { SearchFrameComponent } from './search-frame/search-frame.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +24,6 @@ const config: SocketIoConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchFrameComponent,
     ErrorPageComponent,
   ],
   imports: [

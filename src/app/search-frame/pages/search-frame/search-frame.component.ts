@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { FrameServicesService } from '../services/frame-services.service';
+import { FrameServicesService } from '../../../services/frame-services.service';
 
 @Component({
   selector: 'app-search-frame',
