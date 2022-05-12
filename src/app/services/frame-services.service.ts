@@ -16,4 +16,12 @@ export class FrameServicesService {
     return this.httpClient.get(`https://moo-api-facebook.herokuapp.com/api/frame/${numeroFrame}`);
   }
 
+  getGallerySize() {
+    return this.httpClient.get('https://moo-api-facebook.herokuapp.com/api/frame/size/gallery');
+  }
+
+  getGalleryPage(numeroPage:String) {
+    return this.httpClient.get(`https://moo-api-facebook.herokuapp.com/api/frame/gallery/${numeroPage}`);
+  }
+
 }

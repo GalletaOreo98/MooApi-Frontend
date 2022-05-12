@@ -22,7 +22,6 @@ export class SearchFrameComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.searchedFrame = this.route.snapshot.params['numeroFrame'];
-    console.log('Me inicie con ruta frame ' + this.searchedFrame);
     this.getFrameOnInit();
     this.obs = this.router.events.subscribe(
       { 
