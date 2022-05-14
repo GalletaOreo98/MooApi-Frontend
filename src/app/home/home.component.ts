@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   getActualFrame() {
     this.frameService.getActualFrame().subscribe(
       {
-        next: (res:any) => {
+        next: (res) => {
           this.cardFrame.caption = res.caption;
           this.cardFrame.url = res.url;
         }

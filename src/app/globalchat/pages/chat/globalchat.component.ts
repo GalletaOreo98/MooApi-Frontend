@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthServicesService } from '../../services/auth-services.service';
+import { AuthServicesService } from '../../../services/auth-services.service';
+import { WebsocketService } from '../../../services/websocket.service';
 import { GlobalchatServiceService } from '../../services/globalchat-service.service';
-import { WebsocketService } from '../../services/websocket.service';
 
 @Component({
   selector: 'ngbd-modal-content',
@@ -46,9 +46,13 @@ export class GlobalchatComponent implements OnInit {
 
   comentario:String='';
 
-  constructor(private globalChatService:GlobalchatServiceService, private router:Router,
-    private authServicesService:AuthServicesService, private globalchatService:GlobalchatServiceService,
-    private websocketService: WebsocketService, private modalService: NgbModal) { }
+  constructor(
+      private globalChatService:GlobalchatServiceService, 
+      private router:Router,
+      private authServicesService:AuthServicesService, 
+      private websocketService: WebsocketService,
+      private modalService: NgbModal
+    ) { }
 
   ngOnInit(): void {
     
@@ -97,7 +101,7 @@ export class GlobalchatComponent implements OnInit {
 
   postChat() {
     console.log(this.comentario);
-    this.globalchatService.postChat(this.comentario).subscribe({
+    this.globalChatService.postChat(this.comentario).subscribe({
       next: (res:any) => {
         this.sayHello();
         this.comentario='';

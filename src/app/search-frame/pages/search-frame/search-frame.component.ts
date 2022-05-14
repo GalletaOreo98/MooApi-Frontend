@@ -46,11 +46,11 @@ export class SearchFrameComponent implements OnInit, OnDestroy {
   getFrameOnInit(){    
     this.frameService.getFrame(this.searchedFrame).subscribe(
       {
-        next: (res:any) => {
+        next: (res) => {
           this.cardFrame.caption = res.caption;
           this.cardFrame.url = res.url;     
         },
-        error: (res:any) => {
+        error: () => {
           this.router.navigate(['error']);
         }
       }

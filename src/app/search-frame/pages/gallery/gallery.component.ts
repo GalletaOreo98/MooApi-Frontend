@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { IGalleryPageElement } from 'src/app/models';
 import { FrameServicesService } from 'src/app/services/frame-services.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
@@ -16,10 +17,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   obs:any;
 
-  frames:Array<{
-    url:String,
-    numeroFrame:String
-  }> | undefined;
+  frames: [IGalleryPageElement] | undefined;
 
   constructor(private frameService:FrameServicesService, private router:Router, private route:ActivatedRoute) { }
 
@@ -28,13 +26,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.page = this.route.snapshot.params['numeroPagina'];
 
     this.frameService.getGallerySize().subscribe({
-      next: (res:any) => {
+      next: (res) => {
         this.collectionSize = res.size;
       }
     });
 
     this.frameService.getGalleryPage(`${this.page}`).subscribe({
-      next: (res:any) => {
+      next: (res) => {
         this.frames = res.page;
       }
     });
@@ -45,7 +43,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
           if(event instanceof NavigationEnd) {
             this.page = this.route.snapshot.params['numeroPagina'];
             this.frameService.getGalleryPage(`${this.page}`).subscribe({
-              next: (res:any) => {
+              next: (res) => {
                 this.frames = res.page;
               }
             });

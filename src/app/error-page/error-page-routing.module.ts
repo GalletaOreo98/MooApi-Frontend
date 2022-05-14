@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GlobalchatComponent } from './pages/chat/globalchat.component';
+import { ErrorPageComponent } from './error-page.component';
 
 const routes: Routes = [
-  { path: '', component: GlobalchatComponent},
-  { path: '**', redirectTo: 'globalchat'}
+  {path: '', component: ErrorPageComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class GlobalchatRoutingModule { }
+export class ErrorPageRoutingModule { }

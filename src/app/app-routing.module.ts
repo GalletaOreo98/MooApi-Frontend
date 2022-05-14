@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -13,7 +12,7 @@ const routes: Routes = [
     path: 'globalchat', loadChildren: () => import('./globalchat/globalchat.module').then( m => m.GlobalchatModule),
     canActivate: [AuthGuard] 
   },
-  {path: 'error', component: ErrorPageComponent},
+  {path: 'error', loadChildren: () => import('./error-page/error-page.module').then( m => m.ErrorPageModule)},
   {path: '**', component: HomeComponent},
 ];
 

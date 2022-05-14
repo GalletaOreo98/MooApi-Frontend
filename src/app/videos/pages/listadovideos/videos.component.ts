@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IVideosListElement } from '../../models/videos-interface';
 import { VideoServiceService } from '../../services/video-service.service';
 
 @Component({
@@ -9,12 +10,7 @@ import { VideoServiceService } from '../../services/video-service.service';
 })
 export class VideosComponent implements OnInit {
 
-  videos:Array<{
-      idVideo:String, 
-      numeroVideo:String, 
-      url:String, 
-      nombre:String
-    }> | undefined;
+  videos: [IVideosListElement] | undefined;
 
   constructor(private videoService:VideoServiceService, private router:Router) { }
 
@@ -25,10 +21,8 @@ export class VideosComponent implements OnInit {
   getVideos(){
     this.videoService.getVideos().subscribe(
       {
-        next: (res:any) => {
+        next: (res) => {
           this.videos = res.result;
-          console.log(this.videos);
-          
         }
       }
     );

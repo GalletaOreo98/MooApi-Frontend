@@ -34,10 +34,10 @@ export class AppComponent implements OnInit{
   getFrame(){
     this.frameService.getFrame(this.searchedFrame).subscribe(
       {
-        next: (res:any) => {
+        next: () => {
           this.router.navigate(['frame', this.searchedFrame]);
         },
-        error: (res:any) => {
+        error: () => {
           this.router.navigate(['error']);
         }
       }
