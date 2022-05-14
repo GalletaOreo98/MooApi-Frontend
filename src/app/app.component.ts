@@ -15,19 +15,18 @@ export class AppComponent implements OnInit{
   faImage = faImage;
   faUser = faUser;
 
-  searchedFrame:String = '';
-  userName:String = '';
+  searchedFrame:string = '';
+  userName:string = '';
 
   constructor( private frameService:FrameServicesService, private router:Router ) { }
   
-  ngOnInit(): void {
+  ngOnInit(): void {    
     var nick = localStorage.getItem('nombre') || '';
     if (!nick) {
       this.userName = '';
       return;
     }
-    nick = nick.charAt(0) + nick.charAt(nick.length-1);
-    nick = nick.toUpperCase(); 
+    nick = nick.substring(0, 2)
     this.userName = nick;
   }
 
