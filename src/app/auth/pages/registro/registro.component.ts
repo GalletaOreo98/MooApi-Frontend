@@ -31,13 +31,13 @@ export class RegistroComponent implements OnInit {
   registrar(){
     this.authService.registrar(this.formularioIngresar.value.email, this.formularioIngresar.value.password, this.formularioIngresar.value.nombre).subscribe(
       {
-        next: (res:any) => {
+        next: (res) => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('nombre', res.nombre);
           this.appComponent.ngOnInit();
           this.router.navigate(['']);
         },
-        error: (res:any) => {
+        error: (res) => {
           this.errorMessage = res.error.sqlMessage;
         }
       }

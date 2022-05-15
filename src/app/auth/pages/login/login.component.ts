@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
   ingresar(){
     this.authService.login(this.formularioIngresar.value.email, this.formularioIngresar.value.password).subscribe(
       {
-        next: (res:any) => {
+        next: (res) => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('nombre', res.nombre);
           this.appComponent.ngOnInit();
           this.router.navigate(['']); 
         },
-        error: (res:any) => {
+        error: (res) => {
           this.errorMessage = res.error.message;          
         }
       }
